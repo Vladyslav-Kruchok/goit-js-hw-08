@@ -29,7 +29,12 @@ const funcThrottle = require('lodash/throttle');
 //#region Submit-form
 feedbackForm.addEventListener('submit', e => {
     e.preventDefault();
-    
+    //isEmpty form
+    if (!feedbackForm.elements.email.value || !feedbackForm.elements.message.value)
+    {
+        return;
+    }
+
     //clear localStorage
     localStorage.removeItem(KEY_STORAGE);
     
@@ -42,7 +47,17 @@ feedbackForm.addEventListener('submit', e => {
 //#endregion #
 
 //#region Change-form
-feedbackForm.addEventListener('change', funcThrottle( e => {
+//change
+feedbackForm.addEventListener('change', e => {
+    
+    //prepare storage-obj by name with value
+    valueStorage[e.target.name] = e.target.value;
+    
+    //set data to localStorage
+    localStorage.setItem(KEY_STORAGE, JSON.stringify(valueStorage))
+});
+//input
+feedbackForm.addEventListener('input',funcThrottle( e => {
     
     //prepare storage-obj by name with value
     valueStorage[e.target.name] = e.target.value;
