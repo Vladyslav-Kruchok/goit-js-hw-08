@@ -15,7 +15,8 @@ import
 {
     printFormToConsole,
     clearForm,
-    initLocalStorage
+    initLocalStorage,
+    saveLocalStorage
 } from './helpers.js';
 //#endregion #
 
@@ -49,21 +50,11 @@ feedbackForm.addEventListener('submit', e => {
 //#region Change-form
 //change
 feedbackForm.addEventListener('change', e => {
-    
-    //prepare storage-obj by name with value
-    valueStorage[e.target.name] = e.target.value;
-    
-    //set data to localStorage
-    localStorage.setItem(KEY_STORAGE, JSON.stringify(valueStorage))
+    saveLocalStorage(valueStorage, KEY_STORAGE, e);
 });
 //input
-feedbackForm.addEventListener('input',funcThrottle( e => {
-    
-    //prepare storage-obj by name with value
-    valueStorage[e.target.name] = e.target.value;
-    
-    //set data to localStorage
-    localStorage.setItem(KEY_STORAGE, JSON.stringify(valueStorage))
+feedbackForm.addEventListener('input', funcThrottle(e => {
+    saveLocalStorage(valueStorage, KEY_STORAGE, e);
 }, 500));
 //#endregion #
 
