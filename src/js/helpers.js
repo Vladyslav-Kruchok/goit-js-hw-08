@@ -9,9 +9,13 @@ export const initLocalStorage = (key) =>
 export const printFormToConsole = (feedbackForm) =>
 {
     //print to concole
+    let str = '';
     const formData = new FormData(feedbackForm);
     formData.forEach((key, value) =>
-        console.log(`${value} => ${key}`));
+    {
+        str += `"${value}":"${key}",`
+    });
+    console.log(JSON.parse(`{${str.slice(0,-1)}}`));
 }
 
 export const  clearForm = (feedbackForm) => {
