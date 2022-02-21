@@ -27,5 +27,5 @@ export const saveLocalStorage = (valueStorage, key,  event) => {
     valueStorage[event.target.name] = event.target.value;
     
     //set data to localStorage
-    localStorage.setItem(key, JSON.stringify(valueStorage))
+    localStorage.setItem(key, JSON.stringify(valueStorage));
 }
