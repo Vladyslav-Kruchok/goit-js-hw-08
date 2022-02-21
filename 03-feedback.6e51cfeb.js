@@ -34,4 +34,4 @@ var i=require("./debounce"),e=require("./isObject"),n="Expected a function";func
 },{"./debounce":"CXfR","./isObject":"u9vI"}],"TTyb":[function(require,module,exports) {
 "use strict";var e=require("./helpers.js");const t=document.querySelector(".feedback-form"),a="feedback-form-state";let r=(0,e.initLocalStorage)(a);const o=require("lodash/throttle");t.addEventListener("submit",r=>{r.preventDefault(),t.elements.email.value&&t.elements.message.value&&(localStorage.removeItem(a),(0,e.printFormToConsole)(t),(0,e.clearForm)(t))}),t.addEventListener("change",t=>{(0,e.saveLocalStorage)(r,a,t)}),t.addEventListener("input",o(t=>{(0,e.saveLocalStorage)(r,a,t)},500)),document.addEventListener("DOMContentLoaded",()=>{r&&Object.entries(r).forEach(([e,a])=>t.elements[e].value=a)});
 },{"./helpers.js":"EDcV","lodash/throttle":"Ywd4"}]},{},["TTyb"], null)
-//# sourceMappingURL=/goit-js-hw-08/03-feedback.ed221c9f.js.map
+//# sourceMappingURL=/goit-js-hw-08/03-feedback.6e51cfeb.js.map
