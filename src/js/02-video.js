@@ -26,4 +26,4 @@ player.on('timeupdate',
         // console.log(`${e.seconds} - ${new Date().getUTCMilliseconds()}`);
         localStorage.setItem(KEY, e.seconds);
     }, 1000));
-player.setCurrentTime(localStorage.getItem(KEY));
+player.setCurrentTime(Number(localStorage.getItem(KEY)));
